@@ -1,0 +1,13 @@
+files:
+  upload:
+    baseDir: /home/dmitry/TestTascRecousrces
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost/testspringdb
+    username: dmitry
+    password: 12345
+    driver-class-name: org.postgresql.Driver
+
+spring.jpa:
+  hibernate.ddl-auto: update
