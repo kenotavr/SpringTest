@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
+
 @Controller
 @RequestMapping("/image")
 public class ImageController {
@@ -26,23 +27,29 @@ public class ImageController {
     }
 
 
-    @RequestMapping(value = "/upload", method = RequestMethod.GET)
+    @GetMapping(value = "/upload")
     public String upload() throws IOException {
         return "uploadFile";
     }
 
 
-    @PostMapping(value = "/uploadFile")
-    public ResponseEntity upload(@RequestParam("pic") MultipartFile pic) {
-        if (!pic.isEmpty()) {
+    @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+    public String upload(@RequestParam("img") MultipartFile img) {
+        if (!img.isEmpty()) {
             try {
-                imageService.uploadile(pic);
-                return ResponseEntity.ok().body(uploadPath + "/" + imageService.getFileNameImage());
+                imageService.uploadile(img);
+                //return ResponseEntity.ok().body(uploadPath + "/" + imageService.getFileNameImage());
+                return "redirect:/upload";
             } catch (IOException e) {
-                return ResponseEntity.badRequest().body(e.getMessage());
+                //return ResponseEntity.badRequest().body(e.getMessage());
+                return "redirect:/upload";
+
             }
         } else {
-            return ResponseEntity.badRequest().body("Empty file");
+            //return ResponseEntity.badRequest().body("Empty file");
+            return "redirect:/upload";
+
         }
     }
+
 }
