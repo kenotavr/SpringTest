@@ -12,7 +12,6 @@ import java.io.IOException;
 
 
 @Controller
-@RequestMapping("/image")
 public class ImageController {
 
     @Value("${files.upload.baseDir}")
@@ -28,7 +27,7 @@ public class ImageController {
 
 
     @GetMapping(value = "/upload")
-    public String upload() throws IOException {
+    public String upload() {
         return "uploadFile";
     }
 

@@ -2,12 +2,21 @@ files:
   upload:
     baseDir: /home/dmitry/TestTascRecousrces
 
+#spring:
+#  datasource:
+#    url: jdbc:postgresql://localhost/testspringdb
+#    username: dmitry
+#    password: 12345
+#    driver-class-name: org.postgresql.Driver
+
 spring:
   datasource:
-    url: jdbc:postgresql://localhost/testspringdb
+    url:  jdbc:h2:tcp://localhost/~/test
     username: dmitry
-    password: 12345
-    driver-class-name: org.postgresql.Driver
+    password:
+    validationQuery : SELECT 1
+    driver-class-name: org.h2.Driver
+
 
 spring.jpa:
   hibernate.ddl-auto: update
