@@ -12,6 +12,7 @@
         <java.version>1.8</java.version>
         <lombok.version>1.18.2</lombok.version>
         <hibernate.version>5.3.7.Final</hibernate.version>
+        <springdata.version>1.0.2.RELEASE</springdata.version>
     </properties>
 
     <parent>
@@ -55,6 +56,8 @@
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
+
+
     </dependencies>
 
     <build>

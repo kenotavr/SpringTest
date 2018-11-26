@@ -26,7 +26,7 @@ public class User {
     private String password;
     private String email;
     private String fileURL;
-    private boolean status;
+    private Boolean status;
 
 
 }

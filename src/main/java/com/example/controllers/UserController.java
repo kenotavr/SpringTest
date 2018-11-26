@@ -4,11 +4,10 @@ import com.example.domain.User;
 import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/user")
 public class UserController {
 
     private final UserService userService;
@@ -22,4 +21,29 @@ public class UserController {
     public ResponseEntity createUser(@RequestBody User user) {
         return ResponseEntity.ok().body(userService.addUser(user));
     }
+
+
+    @RequestMapping(value = "/get{id}", method = RequestMethod.GET)
+    public  ResponseEntity getUser(@PathVariable int id){
+        return  ResponseEntity.ok().body(userService.getUSer(id));
+    }
+
+    @PutMapping(value = "/changeStatus{id}")
+    public  ResponseEntity changeStatus(@PathVariable("id") int id, @RequestParam("newStatus") Boolean newStatus){
+        return ResponseEntity.ok().body(userService.changeStatus(id,newStatus));
+
+    }
+
+    @GetMapping(value = "/get")
+    public @ResponseBody
+    Iterable<User> getAllUsers(@RequestParam(value = "status", required = false) Boolean status) {
+        return userService.getUsersByStatus(status);
+    }
+
+    @RequestMapping(value="/update", method=RequestMethod.PUT)
+    public ResponseEntity updateUser(@RequestBody User user)
+    {
+        return ResponseEntity.ok().body(userService.updateUser(user));
+    }
+
 }
