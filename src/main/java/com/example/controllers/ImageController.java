@@ -1,6 +1,7 @@
 package com.example.controllers;
 
 import com.example.service.ImageService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -10,8 +11,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
-
+@Slf4j
 @Controller
+@RequestMapping("/image")
 public class ImageController {
 
     @Value("${files.upload.baseDir}")
@@ -32,21 +34,21 @@ public class ImageController {
     }
 
 
-    @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
-    public String upload(@RequestParam("img") MultipartFile img) {
-        if (!img.isEmpty()) {
+    @PostMapping("/uploadFile")
+    public ResponseEntity upload(@RequestParam("file") MultipartFile file) {
+        if (!file.isEmpty()) {
             try {
-                imageService.uploadile(img);
-                //return ResponseEntity.ok().body(uploadPath + "/" + imageService.getFileNameImage());
-                return "redirect:/upload";
+                imageService.uploadile(file);
+                return ResponseEntity.ok().body(uploadPath + "/" + imageService.getFileNameImage());
+                //return "redirect:/image/upload";
             } catch (IOException e) {
-                //return ResponseEntity.badRequest().body(e.getMessage());
-                return "redirect:/upload";
+                return ResponseEntity.badRequest().body(e.getMessage());
+                //return "redirect:/image/upload";
 
             }
         } else {
-            //return ResponseEntity.badRequest().body("Empty file");
-            return "redirect:/upload";
+            return ResponseEntity.badRequest().body("Empty file");
+            //return "redirect:/image/upload";
 
         }
     }
