@@ -2,41 +2,41 @@ files:
   upload:
     baseDir: /home/dmitry/TestTascResources
 
-#spring:
-#  datasource:
-#    url: jdbc:postgresql://localhost/testspringdb
-#    username: dmitry
-#    password: 12345
-#    driver-class-name: org.postgresql.Driver
-#
-#  http:
-#    multipart:
-#      enabled: false
-#
-#  servlet:
-#    multipart:
-#      max-file-size: 128MB
-#      max-request-size: 128MB
-#
 spring:
   datasource:
-    url:  jdbc:h2:tcp://localhost/~/test
+    url: jdbc:postgresql://localhost/testspringdb
     username: dmitry
-    password:
-    validationQuery : SELECT 1
-    driver-class-name: org.h2.Driver
+    password: 12345
+    driver-class-name: org.postgresql.Driver
 
   http:
     multipart:
       enabled: false
 
-    servlet:
-      multipart:
-        max-file-size: 128MB
-        max-request-size: 128MB
+  servlet:
+    multipart:
+      max-file-size: 128MB
+      max-request-size: 128MB
 
-
-
+#spring:
+#  datasource:
+#    url:  jdbc:h2:tcp://localhost/~/test
+#    username: dmitry
+#    password:
+#    validationQuery : SELECT 1
+#    driver-class-name: org.h2.Driver
+#
+#  http:
+#    multipart:
+#      enabled: false
+#
+#    servlet:
+#      multipart:
+#        max-file-size: 128MB
+#        max-request-size: 128MB
+#
+#
+#
 spring.jpa:
   hibernate.ddl-auto: update
 

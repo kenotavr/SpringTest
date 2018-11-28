@@ -9,16 +9,15 @@
     <version>1.0</version>
 
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>11</java.version>
         <lombok.version>1.18.2</lombok.version>
         <hibernate.version>5.3.7.Final</hibernate.version>
-        <springdata.version>1.0.2.RELEASE</springdata.version>
     </properties>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.5.RELEASE</version>
+        <version>2.1.0.RELEASE</version>
     </parent>
 
     <dependencies>
@@ -72,6 +71,28 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.auth0/auth0 -->
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>auth0</artifactId>
+            <version>1.5.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.auth0/auth0-spring-security-api -->
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>auth0-spring-security-api</artifactId>
+            <version>1.0.0</version>
         </dependency>
 
 
