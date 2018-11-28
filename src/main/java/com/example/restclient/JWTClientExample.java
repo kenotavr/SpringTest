@@ -64,7 +64,7 @@ public class JWTClientExample {
         RestTemplate restTemplate = new RestTemplate();
 
         // Send request with GET method, and Headers.
-        ResponseEntity<String> response = restTemplate.exchange(URL_EMPLOYEES, //
+        ResponseEntity<String> response = restTemplate.exchange(URL_USER_GET, //
                 HttpMethod.GET, entity, String.class);
 
         String result = response.getBody();
@@ -81,7 +81,7 @@ public class JWTClientExample {
         System.out.println("Authorization String=" + authorizationString);
 
         // Call REST API:
-        callRESTApi(URL_EMPLOYEES, authorizationString);
+        callRESTApi(URL_USER_GET, authorizationString);
     }
 
 }
