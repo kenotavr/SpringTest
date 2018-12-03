@@ -26,6 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll() //
                 .antMatchers(HttpMethod.POST, "/login").permitAll() //
                 .antMatchers(HttpMethod.GET, "/login").permitAll() // For Test on Browser
+                .antMatchers(HttpMethod.PUT, "/login").permitAll()
                 // Need authentication.
                 .anyRequest().authenticated()
                 //
